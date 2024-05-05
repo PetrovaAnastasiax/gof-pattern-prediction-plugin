@@ -1,0 +1,28 @@
+<idea-plugin>
+    <id>edu.pet-project.gof-pattern-predictor-pattern</id>
+    <name>Gof Pattern Prediction</name>
+    <vendor email="petrovaanastasiax@gmail.com">Petrova Anastasia</vendor>
+
+    <!-- Guidelines: https://plugins.jetbrains.com/docs/marketplace/plugin-overview-page.html#plugin-description -->
+    <description><![CDATA[
+    This plugin is designed to predict GoF design patterns of Java classes
+  ]]></description>
+
+    <!-- https://plugins.jetbrains.com/docs/intellij/plugin-compatibility.html -->
+    <depends>com.intellij.modules.platform</depends>
+    <depends>com.intellij.modules.java</depends>
+    <!-- https://plugins.jetbrains.com/docs/intellij/plugin-extension-points.html -->
+    <extensions defaultExtensionNs="com.intellij">
+        <toolWindow factoryClass="edu.pet.project.petrova.extension.PatternPredictionToolWindowFactory"
+                    id="GoF Pattern Prediction" anchor="bottom" icon="AllIcons.ToolbarDecorator.Export"/>
+    </extensions>
+
+    <actions>
+        <action id="SendJavaCodeAction" class="edu.pet.project.petrova.action.SendJavaCodeAction"
+                text="Predict GoF Pattern" description="Send currently open file to server to predict GoF pattern"
+                icon="com.intellij.icons.ExpUiIcons.General.Export">
+            <add-to-group group-id="ProjectViewPopupMenu"/>
+            <add-to-group group-id="EditorPopupMenu"/>
+        </action>
+    </actions>
+</idea-plugin>
